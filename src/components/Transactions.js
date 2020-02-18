@@ -9,7 +9,7 @@ class Transactions extends React.Component {
   }
 
   componentDidMount(){
-    fetch(`http://localhost:3000/api/v1/users/${this.props.user.id}/transactions`)
+    fetch(`http://ttp-test-api.herokuapp.com/users/${this.props.user.id}/transactions`)
     .then(resp => resp.json())
     .then(userStocks => this.setState({ userStocks }))
   };

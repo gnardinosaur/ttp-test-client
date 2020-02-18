@@ -14,7 +14,7 @@ class Portfolio extends React.Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:3000/api/v1/stocks')
+    fetch('http://ttp-test-api.herokuapp.com/stocks')
     .then(resp => resp.json())
     .then(stocksObject => this.setState({ 
       stocksObject,

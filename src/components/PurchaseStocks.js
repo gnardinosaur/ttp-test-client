@@ -50,7 +50,7 @@ class PurchaseStocks extends React.Component {
   }
 
   purchaseStock = (stockPrice) => {
-    fetch('http://localhost:3000/api/v1/transactions',{
+    fetch('http://ttp-test-api.herokuapp.com/transactions',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
