@@ -17,15 +17,15 @@ class UserStocks extends React.Component {
   };
 
   //update user's list of stocks when new stocks are purchased 
-  componentDidUpdate(prevProps, prevState) { 
-    if(this.state !== prevState) {
-      if(this._isMounted) {
-        fetch(`https://ttp-test-api.herokuapp.com/api/v1/users/${this.props.user.id}/transactions`)
+  componentDidUpdate(prevProps) { 
+    if(this.props !== prevProps) {
+      if(this.props.updateStockList) {
+        fetch(`http://localhost:3000/api/v1/users/${this.props.user.id}/transactions`)
         .then(resp => resp.json())
         .then(userStocks => this.setState({ 
           userStocks,
           updateStockList: false
-         }, () => this.buildUserStockObject())) 
+        }, () => this.buildUserStockObject())) 
       }
     }
   }
