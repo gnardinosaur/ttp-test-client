@@ -10,7 +10,8 @@ class Portfolio extends React.Component {
   state = {
     stocksObject: {},
     stocksLoaded: false,
-    totalPortfolioValue: 0
+    totalPortfolioValue: 0,
+    updateStockList: false
   }
 
   componentDidMount(){
@@ -24,6 +25,10 @@ class Portfolio extends React.Component {
 
   totalPortfolioValue = (total) => {
     this.setState({ totalPortfolioValue: total })
+  }
+
+  updateStockList = () => {
+    this.setState({ updateStockList: true })
   }
 
   render(){
@@ -43,11 +48,11 @@ class Portfolio extends React.Component {
           <Grid.Row>
             <Grid.Column>
               {/* list of user's stocks/transactions here */}
-              {this.state.stocksLoaded && <UserStocks user={this.props.user} currentPrices={this.state.stocksObject} totalPortfolioValue={this.totalPortfolioValue} />}
+              {this.state.stocksLoaded && <UserStocks user={this.props.user} currentPrices={this.state.stocksObject} totalPortfolioValue={this.totalPortfolioValue} updateStockList={this.state.updateStockList}/>}
             </Grid.Column>
             <Grid.Column width={5}>
               {/* stock purchase form here */}
-              {this.state.stocksLoaded && <PurchaseStocks user={this.props.user} currentPrices={this.state.stocksObject} decreaseCash={this.props.decreaseCash} />}
+              {this.state.stocksLoaded && <PurchaseStocks user={this.props.user} currentPrices={this.state.stocksObject} decreaseCash={this.props.decreaseCash} updateStockList={this.updateStockList}/>}
             </Grid.Column>
           </Grid.Row>
         </Grid>

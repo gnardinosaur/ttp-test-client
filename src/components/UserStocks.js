@@ -3,11 +3,11 @@ import { List, Container, Grid, Header } from 'semantic-ui-react';
 import { formatter } from '../constants/formatCurrency';
 
 class UserStocks extends React.Component {
-  _isMounted = false;
-
+    
   state = {
     userStocks: [],
-    summedArray: []
+    summedArray: [],
+    updateStockList: false
   }
 
   componentDidMount(){
@@ -22,14 +22,12 @@ class UserStocks extends React.Component {
       if(this._isMounted) {
         fetch(`https://ttp-test-api.herokuapp.com/api/v1/users/${this.props.user.id}/transactions`)
         .then(resp => resp.json())
-        .then(userStocks => this.setState({ userStocks }, () => this.buildUserStockObject())) 
+        .then(userStocks => this.setState({ 
+          userStocks,
+          updateStockList: false
+         }, () => this.buildUserStockObject())) 
       }
     }
-  }
-
-  //fn to make sure component doesn't continue to try check state --> this prevents memory leak error and increases preformance 
-  componentWillUnmount() {
-    this._isMounted = false;
   }
 
   buildUserStockObject = () => {

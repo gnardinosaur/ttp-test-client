@@ -68,7 +68,7 @@ class PurchaseStocks extends React.Component {
         ticker: '',
         qty: ''
       }
-    }))
+    }, () => this.props.updateStockList()))
   }
 
   render(){
