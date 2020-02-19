@@ -20,7 +20,7 @@ class UserStocks extends React.Component {
   componentDidUpdate(prevProps) { 
     if(this.props !== prevProps) {
       if(this.props.updateStockList) {
-        fetch(`http://localhost:3000/api/v1/users/${this.props.user.id}/transactions`)
+        fetch(`https://ttp-test-api.herokuapp.com/api/v1/users/${this.props.user.id}/transactions`)
         .then(resp => resp.json())
         .then(userStocks => this.setState({ 
           userStocks,
