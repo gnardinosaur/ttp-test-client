@@ -11,7 +11,7 @@ class UserStocks extends React.Component {
   }
 
   componentDidMount(){
-    fetch(`http://ttp-test-api.herokuapp.com/api/v1/users/${this.props.user.id}/transactions`)
+    fetch(`https://ttp-test-api.herokuapp.com/api/v1/users/${this.props.user.id}/transactions`)
     .then(resp => resp.json())
     .then(userStocks => this.setState({ userStocks }, () => this.buildUserStockObject()))
   };
@@ -20,7 +20,7 @@ class UserStocks extends React.Component {
   componentDidUpdate(prevProps, prevState) { 
     if(this.state !== prevState) {
       if(this._isMounted) {
-        fetch(`http://ttp-test-api.herokuapp.com/api/v1/users/${this.props.user.id}/transactions`)
+        fetch(`https://ttp-test-api.herokuapp.com/api/v1/users/${this.props.user.id}/transactions`)
         .then(resp => resp.json())
         .then(userStocks => this.setState({ userStocks }, () => this.buildUserStockObject())) 
       }
