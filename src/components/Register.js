@@ -24,7 +24,7 @@ class Register extends React.Component {
   };
 
   createUser = () => {
-    fetch('http://ttp-test-api.herokuapp.com/users', {
+    fetch('http://ttp-test-api.herokuapp.com/api/v1/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

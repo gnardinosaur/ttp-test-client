@@ -24,7 +24,7 @@ class SignIn extends React.Component {
   };
 
   validateUser = () => {
-    fetch('http://ttp-test-api.herokuapp.com/users/sign_in', {
+    fetch('http://ttp-test-api.herokuapp.com/api/v1/users/sign_in', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

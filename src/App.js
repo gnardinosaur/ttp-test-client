@@ -32,7 +32,7 @@ class App extends React.Component {
   };
 
   persistNewBalance = (newBalance) => {
-    fetch(`http://ttp-test-api.herokuapp.com/users/${this.state.user.id}`, {
+    fetch(`http://ttp-test-api.herokuapp.com/api/v1/users/${this.state.user.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
